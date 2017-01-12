@@ -1,10 +1,11 @@
-apply plugin: 'com.android.application'
-
 buildscript {
   ext {
     leak_canary_version = '1.5'
   }
 }
+
+apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.hugo'
 
 android {
   compileSdkVersion 25
