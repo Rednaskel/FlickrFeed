@@ -5,6 +5,7 @@ buildscript {
     rxjava2_version = '2.0.4'
     rxandroid_version = '2.0.1'
     gson_version = '2.8.0'
+    rxadapter_version = '1.0.0'
   }
 }
 
@@ -35,6 +36,7 @@ dependencies {
 
   compile "com.squareup.retrofit2:retrofit:$retrofit_version"
   compile "com.squareup.retrofit2:converter-gson:$retrofit_version"
+  compile "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rxadapter_version"
 
   compile "io.reactivex.rxjava2:rxjava:$rxjava2_version"
   compile "io.reactivex.rxjava2:rxandroid:$rxandroid_version"

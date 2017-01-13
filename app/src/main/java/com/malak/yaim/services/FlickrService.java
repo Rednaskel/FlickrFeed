@@ -1,5 +1,6 @@
 package com.malak.yaim.services;
 
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.malak.yaim.model.FlickrFeed;
 import io.reactivex.Observable;
 import retrofit2.Retrofit;
@@ -24,6 +25,7 @@ public class FlickrService {
     final Retrofit retrofit = new Retrofit.Builder()
         .baseUrl(FLICKR_ENDPOINT)
         .addConverterFactory(GsonConverterFactory.create())
+        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .build();
 
     mFlickrAPI = retrofit.create(FlickrAPI.class);
