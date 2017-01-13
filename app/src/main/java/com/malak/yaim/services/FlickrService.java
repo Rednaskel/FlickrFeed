@@ -2,18 +2,40 @@ package com.malak.yaim.services;
 
 import com.malak.yaim.model.FlickrFeed;
 import io.reactivex.Observable;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
+import static com.malak.yaim.services.FlickrService.FlickrAPI.FLICKR_ENDPOINT;
+
 public class FlickrService {
+  private FlickrAPI mFlickrAPI;
+
+  public FlickrService() {
+    buildFlickrService();
+  }
+
+  public FlickrAPI getFlickrAPI() {
+    return mFlickrAPI;
+  }
+
+  private void buildFlickrService() {
+    final Retrofit retrofit = new Retrofit.Builder()
+        .baseUrl(FLICKR_ENDPOINT)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build();
+
+    mFlickrAPI = retrofit.create(FlickrAPI.class);
+  }
 
   public interface FlickrAPI {
-    public static final String FLICKR_REST_ENDPOINT
+    String FLICKR_ENDPOINT
         = "https://api.flickr.com/services/feeds/";
 
-    public static final String RESPONSE_FORMAT = "json";
-    public static final String NO_CALLBACK_METHOD = "?";
-    public static final String TAGS_MODE = "any";
+    String RESPONSE_FORMAT = "json";
+    String NO_CALLBACK_METHOD = "?";
+    String TAGS_MODE = "any";
 
     @GET("photos_public.gne?format=" + RESPONSE_FORMAT + "&nojsoncallback=" + NO_CALLBACK_METHOD)
     Observable<FlickrFeed> getPublicFeed();
