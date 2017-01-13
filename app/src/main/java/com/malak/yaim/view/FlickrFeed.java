@@ -1,7 +1,8 @@
-package com.malak.yaim;
+package com.malak.yaim.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import com.malak.yaim.R;
 
 public class FlickrFeed extends AppCompatActivity {
 

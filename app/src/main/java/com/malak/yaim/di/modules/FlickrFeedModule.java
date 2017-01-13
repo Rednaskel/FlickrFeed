@@ -1,6 +1,6 @@
 package com.malak.yaim.di.modules;
 
-import com.malak.yaim.FlickrFeed;
+import com.malak.yaim.view.FlickrFeed;
 import com.malak.yaim.di.scopes.PerActivity;
 import com.malak.yaim.services.FlickrService;
 import dagger.Module;
