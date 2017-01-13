@@ -39,11 +39,16 @@ public class FlickrService {
     String NO_CALLBACK_METHOD = "?";
     String TAGS_MODE = "any";
 
+    /**
+     * @return FlickrFeed object which contains a list of image URLs from Flickr public feed.
+     * */
     @GET("photos_public.gne?format=" + RESPONSE_FORMAT + "&nojsoncallback=" + NO_CALLBACK_METHOD)
     Observable<FlickrFeed> getPublicFeed();
 
     /**
      * @param formattedTags - A comma delimited list of tags to filter the feed by.
+     * @return FlickrFeed which contains a list of images URLs
+     * from Flickr public feed but filtered by given tags
      * */
     @GET("photos_public.gne?format=" + RESPONSE_FORMAT + "&nojsoncallback=" + NO_CALLBACK_METHOD +
          "&tagmode=" + TAGS_MODE + "&tags={tags}")
