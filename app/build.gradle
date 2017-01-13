@@ -1,6 +1,10 @@
 buildscript {
   ext {
     leak_canary_version = '1.5'
+    retrofit_version = '2.1.0'
+    rxjava2_version = '2.0.4'
+    rxandroid_version = '2.0.1'
+    gson_version = '2.8.0'
   }
 }
 
@@ -28,6 +32,12 @@ android {
 
 dependencies {
   compile fileTree(dir: 'libs', include: ['*.jar'])
+
+  compile "com.squareup.retrofit2:retrofit:$retrofit_version"
+  compile "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+  compile "io.reactivex.rxjava2:rxjava:$rxjava2_version"
+  compile "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
 
   debugCompile "com.squareup.leakcanary:leakcanary-android:$leak_canary_version"
   releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leak_canary_version"
