@@ -12,7 +12,7 @@
       android:supportsRtl="true"
       android:theme="@style/AppTheme"
       >
-    <activity android:name=".FlickrFeed">
+    <activity android:name=".view.FlickrFeed">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 
