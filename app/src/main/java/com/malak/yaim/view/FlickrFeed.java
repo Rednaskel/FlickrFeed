@@ -10,11 +10,16 @@ import com.malak.yaim.presentation.FeedPresenter;
 import javax.inject.Inject;
 
 public class FlickrFeed extends BaseActivity {
-  @Inject FeedPresenter presenter;
+  @Inject FeedPresenter mPresenter;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_flickr_feed);
+  }
+
+  @Override protected void onResume() {
+    super.onResume();
+    mPresenter.onResumed();
   }
 
   @Override public void initializeInjector() {

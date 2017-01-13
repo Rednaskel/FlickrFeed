@@ -14,7 +14,15 @@ public class FeedPresenter {
 
   @Inject public FeedPresenter() {}
 
-  public void loadFeed() {
+  public void onCreated() { loadFeed(); }
+  public void onResumed() { loadFeed(); }
+
+  /**
+   * Observe and subscribe to Flickr service. (trigger image download)
+   * Updates UI with feeds' images or with error messages.
+   * @see FlickrService
+   **/
+  private void loadFeed() {
     mService.getFlickrAPI()
         .getPublicFeed()
         .subscribeOn(Schedulers.io())
