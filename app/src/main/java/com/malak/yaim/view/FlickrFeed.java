@@ -6,8 +6,11 @@ import com.malak.yaim.R;
 import com.malak.yaim.di.components.DaggerFlickrFeedComponent;
 import com.malak.yaim.di.components.FlickrFeedComponent;
 import com.malak.yaim.di.modules.FlickrFeedModule;
+import com.malak.yaim.presentation.FeedPresenter;
+import javax.inject.Inject;
 
 public class FlickrFeed extends BaseActivity {
+  @Inject FeedPresenter presenter;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
