@@ -1,8 +1,5 @@
 package com.malak.yaim.model;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Item {
 
   private String title;
@@ -14,8 +11,6 @@ public class Item {
   private String author;
   private String authorId;
   private String tags;
-  /*TODO Suppose I dont need any of additionalProperties */
-  private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
   public String getTitle() {
     return title;
@@ -87,13 +82,5 @@ public class Item {
 
   public void setTags(String tags) {
     this.tags = tags;
-  }
-
-  public Map<String, Object> getAdditionalProperties() {
-    return this.additionalProperties;
-  }
-
-  public void setAdditionalProperty(String name, Object value) {
-    this.additionalProperties.put(name, value);
   }
 }

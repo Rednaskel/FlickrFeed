@@ -1,8 +1,6 @@
 package com.malak.yaim.model;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class FlickrFeed {
 
@@ -12,8 +10,6 @@ public class FlickrFeed {
   private String modified;
   private String generator;
   private List<Item> items = null;
-  /*TODO Suppose I dont need any of additionalProperties */
-  private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
   public String getTitle() {
     return title;
@@ -61,13 +57,5 @@ public class FlickrFeed {
 
   public void setItems(List<Item> items) {
     this.items = items;
-  }
-
-  public Map<String, Object> getAdditionalProperties() {
-    return this.additionalProperties;
-  }
-
-  public void setAdditionalProperty(String name, Object value) {
-    this.additionalProperties.put(name, value);
   }
 }
