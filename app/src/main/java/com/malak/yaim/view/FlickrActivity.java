@@ -61,13 +61,15 @@ public class FlickrActivity extends BaseActivity implements FeedListContract.Vie
   }
 
   private boolean isInternetConnected() {
-    final ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+    final ConnectivityManager cm =
+        (ConnectivityManager) this.getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+
     final NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
     return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
   }
 
   @OnClick(R.id.fab)
   protected void onClickFab() {
-    mPresenter.onRefreshButtonClicked();
+    if (isInternetConnected()) mPresenter.onRefreshButtonClicked();
   }
 }
