@@ -1,6 +1,6 @@
 package com.malak.yaim.di.modules;
 
-import com.malak.yaim.view.FlickrFeed;
+import com.malak.yaim.view.FlickrActivity;
 import com.malak.yaim.di.scopes.PerActivity;
 import com.malak.yaim.services.FlickrService;
 import dagger.Module;
@@ -8,13 +8,13 @@ import dagger.Provides;
 
 @Module
 public class FlickrFeedModule {
-  private FlickrFeed mActivity;
+  private FlickrActivity mActivity;
 
-  public FlickrFeedModule(final FlickrFeed activity) {
+  public FlickrFeedModule(final FlickrActivity activity) {
     mActivity = activity;
   }
 
-  @Provides @PerActivity FlickrFeed providesFlickrActivity() {
+  @Provides @PerActivity FlickrActivity providesFlickrActivity() {
     return mActivity;
   }
 

@@ -1,6 +1,6 @@
 package com.malak.yaim.di.components;
 
-import com.malak.yaim.view.FlickrFeed;
+import com.malak.yaim.view.FlickrActivity;
 import com.malak.yaim.di.modules.FlickrFeedModule;
 import com.malak.yaim.di.scopes.PerActivity;
 import com.malak.yaim.services.FlickrService;
@@ -12,8 +12,8 @@ import dagger.Component;
     modules = FlickrFeedModule.class
 )
 public interface FlickrFeedComponent {
-  void inject(final FlickrFeed activity);
+  void inject(final FlickrActivity activity);
 
-  FlickrFeed activity();
+  FlickrActivity activity();
   FlickrService service();
 }
