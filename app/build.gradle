@@ -7,11 +7,21 @@ buildscript {
     gson_version = '2.8.0'
     rxadapter_version = '1.0.0'
     dagger_ver = '2.7'
+    retrolambda_version = '3.3.1'
+  }
+
+  repositories {
+    mavenCentral()
+  }
+
+  dependencies {
+    classpath "me.tatarka:gradle-retrolambda:$retrolambda_version"
   }
 }
 
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.hugo'
+apply plugin: 'me.tatarka.retrolambda'
 
 android {
   compileSdkVersion 25
@@ -29,6 +39,10 @@ android {
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
   }
 }
 
