@@ -1,24 +1,29 @@
 package com.malak.yaim.presentation;
 
-import com.jakewharton.retrofit2.adapter.rxjava2.HttpException;
+import com.malak.yaim.FeedListContract;
 import com.malak.yaim.model.FlickrFeed;
 import com.malak.yaim.services.FlickrService;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import javax.inject.Inject;
 
-public class FeedPresenter {
+public class FeedPresenter implements FeedListContract.Presenter {
   private FlickrService mService;
+  private FeedListContract.View mView;
 
   @Inject public FeedPresenter(FlickrService service) {
     mService = service;
+  }
+
+  @Override public void bind(FeedListContract.View view) {
+    mView = view;
   }
 
   public void onCreated() {
     loadFeed();
   }
 
-  public void onResumed() {
+  @Override public void onRestarted() {
     loadFeed();
   }
 
@@ -34,15 +39,8 @@ public class FeedPresenter {
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
         .map(FlickrFeed::getItems)
-        .doOnNext(list -> {
-          /*TODO Update UI adapter with list of URLs*/
-        })
-        .doOnError(throwable -> {
-          /*TODO Update UI with error*/
-          if (throwable instanceof HttpException) {
-            ((HttpException) throwable).code();
-          }
-        })
+        .doOnNext(list -> mView.showPhotos(list))
+        .doOnError(throwable -> mView.showErrorMsg())
         .subscribe();
   }
 }

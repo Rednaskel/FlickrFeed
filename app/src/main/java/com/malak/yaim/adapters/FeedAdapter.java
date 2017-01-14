@@ -22,6 +22,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
 
   public void setDataset(final List<Item> items) {
     mImagesMetadata = items;
+    notifyDataSetChanged();
   }
 
   @Override public FeedAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
