@@ -8,6 +8,7 @@ buildscript {
     rxadapter_version = '1.0.0'
     dagger_ver = '2.7'
     retrolambda_version = '3.3.1'
+    butterknife_version = '8.4.0'
   }
 
   repositories {
@@ -58,6 +59,9 @@ dependencies {
 
   compile "io.reactivex.rxjava2:rxjava:$rxjava2_version"
   compile "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+
+  compile "com.jakewharton:butterknife:$butterknife_version"
+  annotationProcessor "com.jakewharton:butterknife-compiler:$butterknife_version"
 
   debugCompile "com.squareup.leakcanary:leakcanary-android:$leak_canary_version"
   releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leak_canary_version"
