@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import com.malak.yaim.BaseActivity;
 import com.malak.yaim.FeedListContract;
 import com.malak.yaim.R;
@@ -23,6 +25,7 @@ public class FlickrActivity extends BaseActivity implements FeedListContract.Vie
   @Inject FeedPresenter mPresenter;
   @Inject FeedAdapter mAdapter;
 
+  @BindView(R.id.toolbar) Toolbar mToolbar;
   @BindView(R.id.feed_recycler_view) RecyclerView mRecycler;
 
   @Override public void initializeInjector() {
@@ -31,7 +34,8 @@ public class FlickrActivity extends BaseActivity implements FeedListContract.Vie
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_flickr_feed);
+    setContentView(R.layout.activity_main);
+    setSupportActionBar(mToolbar);
     ButterKnife.bind(this);
 
     final RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
@@ -60,5 +64,10 @@ public class FlickrActivity extends BaseActivity implements FeedListContract.Vie
     final ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
     final NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
     return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+  }
+
+  @OnClick(R.id.fab)
+  protected void onClickFab() {
+    mPresenter.onRefreshButtonClicked();
   }
 }

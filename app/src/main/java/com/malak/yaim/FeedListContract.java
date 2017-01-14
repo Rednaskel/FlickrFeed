@@ -18,5 +18,7 @@ public interface FeedListContract {
     void onCreated();
 
     void onRestarted();
+
+    void onRefreshButtonClicked();
   }
 }

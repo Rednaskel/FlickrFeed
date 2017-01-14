@@ -1,17 +1,18 @@
 buildscript {
   ext {
-    leak_canary_version = '1.5'
     retrofit_version = '2.1.0'
+    gson_version = '2.8.0'
     rxjava2_version = '2.0.4'
     rxandroid_version = '2.0.1'
-    gson_version = '2.8.0'
     rxadapter_version = '1.0.0'
-    dagger_ver = '2.7'
     retrolambda_version = '3.3.1'
+    dagger_ver = '2.7'
     butterknife_version = '8.4.0'
     cardview_version = '25.1.0'
     recyclerview_version = '25.1.0'
     glide_version = '3.7.0'
+    leak_canary_version = '1.5'
+    appcompat_design_verstion = '25.1.0'
   }
 
   repositories {
@@ -48,10 +49,17 @@ android {
     sourceCompatibility JavaVersion.VERSION_1_8
     targetCompatibility JavaVersion.VERSION_1_8
   }
+
+  packagingOptions {
+    exclude 'META-INF/rxjava.properties'
+  }
 }
 
 dependencies {
   compile fileTree(dir: 'libs', include: ['*.jar'])
+
+  compile "com.android.support:appcompat-v7:$appcompat_design_verstion"
+  compile "com.android.support:design:$appcompat_design_verstion"
 
   compile "com.google.dagger:dagger:$dagger_ver"
   annotationProcessor "com.google.dagger:dagger-compiler:$dagger_ver"
