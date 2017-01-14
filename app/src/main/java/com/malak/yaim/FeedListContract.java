@@ -9,10 +9,12 @@ public interface FeedListContract {
   interface View {
     void showPhotos(@NonNull final List<Item> flickrFeedItems);
 
-    void showErrorMsg(final String msg);
+    void showErrorMsg();
   }
 
   interface Presenter {
+    void bind(final FeedListContract.View view);
+
     void onCreated();
 
     void onRestarted();

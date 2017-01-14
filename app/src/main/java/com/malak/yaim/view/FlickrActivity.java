@@ -39,15 +39,21 @@ public class FlickrActivity extends BaseActivity implements FeedListContract.Vie
     mRecycler.setHasFixedSize(true);
     mRecycler.setAdapter(mAdapter);
 
+    mPresenter.bind(this);
     if (isInternetConnected()) mPresenter.onCreated();
+  }
+
+  @Override protected void onRestart() {
+    super.onRestart();
+    if (isInternetConnected()) mPresenter.onRestarted();
   }
 
   @Override public void showPhotos(@NonNull List<Item> flickrFeedItems) {
     mAdapter.setDataset(flickrFeedItems);
   }
 
-  @Override public void showErrorMsg(String msg) {
-    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+  @Override public void showErrorMsg() {
+    Toast.makeText(this, getString(R.string.error_message), Toast.LENGTH_SHORT).show();
   }
 
   private boolean isInternetConnected() {
