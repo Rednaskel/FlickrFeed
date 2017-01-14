@@ -9,6 +9,7 @@ Libs
 * RxJava2 2.0.4
 * RxAndroid 2.0.1
 * Dagger2 2.7
+* Retrolambda 3.3.1
 
 Online resources and tools
 * http://www.jsonschema2pojo.org/
