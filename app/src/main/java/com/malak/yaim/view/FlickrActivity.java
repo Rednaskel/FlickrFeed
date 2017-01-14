@@ -70,6 +70,6 @@ public class FlickrActivity extends BaseActivity implements FeedListContract.Vie
 
   @OnClick(R.id.fab)
   protected void onClickFab() {
-    mPresenter.onRefreshButtonClicked();
+    if (isInternetConnected()) mPresenter.onRefreshButtonClicked();
   }
 }
