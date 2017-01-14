@@ -4,7 +4,6 @@ import android.app.Application;
 import android.support.annotation.NonNull;
 import com.malak.yaim.di.components.AppComponent;
 import com.malak.yaim.di.components.DaggerAppComponent;
-import com.malak.yaim.di.modules.AppModule;
 import com.squareup.leakcanary.LeakCanary;
 
 public class YAIMApplication extends Application {
@@ -21,9 +20,7 @@ public class YAIMApplication extends Application {
   }
 
   private void initializeInjector() {
-    mAppComponent = DaggerAppComponent.builder()
-        .appModule(new AppModule(this))
-        .build();
+    mAppComponent = DaggerAppComponent.create();
   }
 
   private void initializeLeakCanary() {

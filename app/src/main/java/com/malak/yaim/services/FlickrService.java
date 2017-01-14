@@ -1,8 +1,10 @@
 package com.malak.yaim.services;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import com.malak.yaim.di.scopes.PerApp;
 import com.malak.yaim.model.FlickrFeed;
 import io.reactivex.Observable;
+import javax.inject.Inject;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
@@ -10,10 +12,11 @@ import retrofit2.http.Path;
 
 import static com.malak.yaim.services.FlickrService.FlickrAPI.FLICKR_ENDPOINT;
 
+@PerApp
 public class FlickrService {
   private FlickrAPI mFlickrAPI;
 
-  public FlickrService() {
+  @Inject public FlickrService() {
     buildFlickrService();
   }
 
