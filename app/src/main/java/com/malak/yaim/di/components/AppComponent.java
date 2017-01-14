@@ -1,12 +1,11 @@
 package com.malak.yaim.di.components;
 
-import android.content.Context;
-import com.malak.yaim.di.modules.AppModule;
 import com.malak.yaim.di.scopes.PerApp;
+import com.malak.yaim.view.FlickrActivity;
 import dagger.Component;
 
 @PerApp
-@Component(modules = AppModule.class)
+@Component
 public interface AppComponent {
-  Context context();
+  void inject(FlickrActivity activity);
 }

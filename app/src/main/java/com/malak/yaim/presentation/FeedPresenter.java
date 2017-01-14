@@ -10,9 +10,11 @@ import java.util.List;
 import javax.inject.Inject;
 
 public class FeedPresenter {
-  @Inject FlickrService mService;
+  private FlickrService mService;
 
-  @Inject public FeedPresenter() {}
+  @Inject public FeedPresenter(FlickrService service) {
+    mService = service;
+  }
 
   public void onCreated() {
     loadFeed();
