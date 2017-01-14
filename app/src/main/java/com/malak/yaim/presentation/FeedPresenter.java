@@ -27,6 +27,10 @@ public class FeedPresenter implements FeedListContract.Presenter {
     loadFeed();
   }
 
+  @Override public void onRefreshButtonClicked() {
+    loadFeed();
+  }
+
   /**
    * Observe and subscribe to Flickr service. (trigger image download)
    * Updates UI with feeds' images or with error messages.

@@ -5,7 +5,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -28,7 +27,6 @@ public class FlickrActivity extends BaseActivity implements FeedListContract.Vie
 
   @BindView(R.id.toolbar) Toolbar mToolbar;
   @BindView(R.id.feed_recycler_view) RecyclerView mRecycler;
-  @BindView(R.id.fab) FloatingActionButton mFAB;
 
   @Override public void initializeInjector() {
     getApplicationComponent().inject(this);
@@ -70,6 +68,6 @@ public class FlickrActivity extends BaseActivity implements FeedListContract.Vie
 
   @OnClick(R.id.fab)
   protected void onClickFab() {
-    mPresenter.onCreated();
+    mPresenter.onRefreshButtonClicked();
   }
 }
