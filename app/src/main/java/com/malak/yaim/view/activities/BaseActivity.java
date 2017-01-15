@@ -1,8 +1,9 @@
-package com.malak.yaim;
+package com.malak.yaim.view.activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import com.malak.yaim.YAIMApplication;
 import com.malak.yaim.di.components.AppComponent;
 
 public abstract class BaseActivity extends AppCompatActivity {

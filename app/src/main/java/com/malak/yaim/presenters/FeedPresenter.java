@@ -1,4 +1,4 @@
-package com.malak.yaim.presentation;
+package com.malak.yaim.presenters;
 
 import com.malak.yaim.FeedListContract;
 import com.malak.yaim.model.FlickrFeed;

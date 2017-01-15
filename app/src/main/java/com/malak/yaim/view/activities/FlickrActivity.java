@@ -1,4 +1,4 @@
-package com.malak.yaim.view;
+package com.malak.yaim.view.activities;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -12,12 +12,11 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import com.malak.yaim.BaseActivity;
 import com.malak.yaim.FeedListContract;
 import com.malak.yaim.R;
-import com.malak.yaim.adapters.FeedAdapter;
 import com.malak.yaim.model.Item;
-import com.malak.yaim.presentation.FeedPresenter;
+import com.malak.yaim.presenters.FeedPresenter;
+import com.malak.yaim.view.adapters.FeedAdapter;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -60,16 +59,16 @@ public class FlickrActivity extends BaseActivity implements FeedListContract.Vie
     Toast.makeText(this, getString(R.string.error_message), Toast.LENGTH_SHORT).show();
   }
 
+  @OnClick(R.id.fab)
+  protected void onClickFab() {
+    if (isInternetConnected()) mPresenter.onRefreshButtonClicked();
+  }
+
   private boolean isInternetConnected() {
     final ConnectivityManager cm =
         (ConnectivityManager) this.getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
 
     final NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
     return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
-  }
-
-  @OnClick(R.id.fab)
-  protected void onClickFab() {
-    if (isInternetConnected()) mPresenter.onRefreshButtonClicked();
   }
 }

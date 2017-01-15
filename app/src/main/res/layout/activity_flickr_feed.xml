@@ -4,7 +4,7 @@
     android:id="@+id/activity_flickr_feed"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.malak.yaim.view.FlickrActivity"
+    tools:context="com.malak.yaim.view.activities.FlickrActivity"
     android:orientation="vertical"
     >
 
