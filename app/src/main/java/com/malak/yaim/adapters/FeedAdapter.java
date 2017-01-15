@@ -16,15 +16,16 @@ import com.malak.yaim.model.Item;
 import com.malak.yaim.model.Media;
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.inject.Inject;
-
-import static java.util.Collections.emptyList;
 
 public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
   private List<Item> mImagesMetadata;
+  private Pattern mAuthorPattern = Pattern.compile("\"([^\"]*)\"");
 
   @Inject FeedAdapter() {
-    setDataset(Collections.emptyList());
+    setDataset(Collections.<Item>emptyList());
   }
 
   public void setDataset(final List<Item> items) {
@@ -45,7 +46,8 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
     final Item item = mImagesMetadata.get(position);
 
     if (item != null) {
-      holder.mFeedItemAuthor.setText(item.getAuthor());
+      final String author = reformatAuthorName(item.getAuthor());
+      holder.mFeedItemAuthor.setText(author);
       holder.mFeedItemTitle.setText(item.getTitle());
       holder.mFeedItemTags.setText(item.getTags());
 
@@ -62,6 +64,11 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
             .into(holder.mFeedItemImage);
       }
     }
+  }
+
+  private String reformatAuthorName(final String author) {
+    final Matcher matcher = mAuthorPattern.matcher(author);
+    return matcher.find() ? matcher.group().replaceAll("\"", "") : author;
   }
 
   @Override public int getItemCount() {
