@@ -35,8 +35,8 @@ public class FlickrActivity extends BaseActivity implements FeedListContract.Vie
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    setSupportActionBar(mToolbar);
     ButterKnife.bind(this);
+    setSupportActionBar(mToolbar);
 
     final RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
     mRecycler.setLayoutManager(layoutManager);
