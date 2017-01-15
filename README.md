@@ -3,6 +3,7 @@ YAIM - Yet Another Image WUT?
 Any questions? maciejmalak@gmail.com
 
 This application is not an end-to-end solution.
+I would appreciate any comments about code style.
 
 I wanted to show how I can handle concepts such as:
 * MVP architecture, SOLID
