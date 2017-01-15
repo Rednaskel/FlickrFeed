@@ -51,6 +51,11 @@ public class FlickrActivity extends BaseActivity implements FeedListContract.Vie
     if (isInternetConnected()) mPresenter.onRestarted();
   }
 
+  @Override protected void onDestroy() {
+    super.onDestroy();
+    mPresenter.onDestroyed();
+  }
+
   @Override public void showPhotos(@NonNull List<Item> flickrFeedItems) {
     mAdapter.setDataset(flickrFeedItems);
   }

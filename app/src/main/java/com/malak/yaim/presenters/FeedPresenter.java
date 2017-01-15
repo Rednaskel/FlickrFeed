@@ -27,6 +27,11 @@ public class FeedPresenter implements FeedListContract.Presenter {
     loadFeed();
   }
 
+  @Override public void onDestroyed() {
+    mView = null;
+    mService = null;
+  }
+
   @Override public void onRefreshButtonClicked() {
     loadFeed();
   }
