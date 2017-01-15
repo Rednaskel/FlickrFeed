@@ -25,7 +25,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
   private Pattern mAuthorPattern = Pattern.compile("\"([^\"]*)\"");
 
   @Inject FeedAdapter() {
-    setDataset(Collections.<Item>emptyList());
+    setDataset(Collections.emptyList());
   }
 
   public void setDataset(final List<Item> items) {
