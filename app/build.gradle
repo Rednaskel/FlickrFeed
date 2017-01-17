@@ -13,6 +13,7 @@ buildscript {
     glide_version = '3.7.0'
     leak_canary_version = '1.5'
     appcompat_design_verstion = '25.1.0'
+    stetho_version = '1.4.2'
   }
 
   repositories {
@@ -70,14 +71,17 @@ dependencies {
   compile "com.jakewharton:butterknife:$butterknife_version"
   annotationProcessor "com.jakewharton:butterknife-compiler:$butterknife_version"
 
-  debugCompile "com.squareup.leakcanary:leakcanary-android:$leak_canary_version"
-  releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leak_canary_version"
-  testCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leak_canary_version"
-
   compile "com.android.support:cardview-v7:$cardview_version"
   compile "com.android.support:recyclerview-v7:$recyclerview_version"
 
   compile "com.github.bumptech.glide:glide:$glide_version"
+
+  debugCompile "com.squareup.leakcanary:leakcanary-android:$leak_canary_version"
+  releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leak_canary_version"
+  testCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leak_canary_version"
+
+  compile "com.facebook.stetho:stetho:$stetho_version"
+  compile "com.facebook.stetho:stetho-okhttp3:$stetho_version"
 
   androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
     exclude group: 'com.android.support', module: 'support-annotations'

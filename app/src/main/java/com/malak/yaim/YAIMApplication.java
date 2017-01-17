@@ -2,6 +2,7 @@ package com.malak.yaim;
 
 import android.app.Application;
 import android.support.annotation.NonNull;
+import com.facebook.stetho.Stetho;
 import com.malak.yaim.di.components.AppComponent;
 import com.malak.yaim.di.components.DaggerAppComponent;
 import com.squareup.leakcanary.LeakCanary;
@@ -13,6 +14,7 @@ public class YAIMApplication extends Application {
     super.onCreate();
     initializeLeakCanary();
     initializeInjector();
+    Stetho.initializeWithDefaults(this);
   }
 
   @NonNull public AppComponent getAppComponent() {
