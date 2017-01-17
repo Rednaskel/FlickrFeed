@@ -1,10 +1,12 @@
 package com.malak.yaim.services;
 
+import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.malak.yaim.di.scopes.PerApp;
 import com.malak.yaim.model.FlickrFeed;
 import io.reactivex.Observable;
 import javax.inject.Inject;
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
@@ -25,8 +27,13 @@ public class FlickrService {
   }
 
   private void buildFlickrService() {
+    final OkHttpClient client = new OkHttpClient.Builder()
+        .addNetworkInterceptor(new StethoInterceptor())
+        .build();
+
     final Retrofit retrofit = new Retrofit.Builder()
         .baseUrl(FLICKR_ENDPOINT)
+        .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .build();
