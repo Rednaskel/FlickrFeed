@@ -27,6 +27,16 @@ Libs
 * Retrolambda 3.3.1 - I didn't want to migrate to 1.8 fully and use Jack&Jill toolchain so I used it
 * Glide 3.7.0 - recommended by Google, with very nice cache, simple. 
 * ButterKnife 8.4.0 - "A butter knife is like a dagger only infinitely less sharp." and because Jake did great work.
+* Stetho 1.4.2
+
+Action Points:
+Unit tests
+CI
+Static code analysis
+Developer settings drawer: https://artemzin.com/blog/android-development-culture-the-document-qualitymatters/
+Flavors
+Presentation, domain and data as a separate modules
+
 
 Resources:
 
