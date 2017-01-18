@@ -5,12 +5,13 @@ import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.malak.yaim.di.scopes.PerApp;
 import com.malak.yaim.model.FlickrFeed;
 import io.reactivex.Observable;
+import javax.annotation.Nullable;
 import javax.inject.Inject;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 import static com.malak.yaim.services.FlickrService.FlickrAPI.FLICKR_ENDPOINT;
 
@@ -60,8 +61,7 @@ public class FlickrService {
      * @return FlickrFeed which contains a list of images URLs
      * from Flickr public feed but filtered by given tags
      * */
-    @GET("photos_public.gne?format=" + RESPONSE_FORMAT + "&nojsoncallback=" + NO_CALLBACK_METHOD +
-         "&tagmode=" + TAGS_MODE + "&tags={tags}")
-    Observable<FlickrFeed> getPublicFeedByTags(@Path("tags") String formattedTags);
+    @GET("photos_public.gne?format=" + RESPONSE_FORMAT + "&nojsoncallback=" + NO_CALLBACK_METHOD + "&tagmode=" + TAGS_MODE)
+    Observable<FlickrFeed> getPublicFeedByTags(@Nullable @Query("tags") String formattedTags);
   }
 }
