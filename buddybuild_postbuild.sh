@@ -1,7 +1,12 @@
 #!/bin/bash
 
 ls
+cd CalabashFlickrFeed
+bundle install
 
-calabash-android resign something
+pathToApk="${BUDDYBUILD_WORKSPACE}/app/build/outputs/apk/app-debug.apk"
+echo $pathToApk
 
-calabash-android run something --format pretty --format html --out report.html
+calabash-android resign $pathToApk
+
+calabash-android run $pathToApk --format pretty --format html --out report.html
