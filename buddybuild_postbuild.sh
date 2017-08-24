@@ -9,9 +9,10 @@ echo $pathToApk
 cd CalabashFlickrFeed
 ruby --version
 bundler --version
-#gem install json -v '1.8.6'
+gem install json -v '1.8.6'
+sudo gem install json -v '1.8.6'
 
-sudo bundle install
+bundle install
 
 calabash-android resign $pathToApk
 
