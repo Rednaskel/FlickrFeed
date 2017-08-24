@@ -1,0 +1,3 @@
+[submodule "CalabashFlickrFeed"]
+	path = CalabashFlickrFeed
+	url = git@github.com:Rednaskel/CalabashFlickrFeed.git
