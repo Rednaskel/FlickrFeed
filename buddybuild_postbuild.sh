@@ -1,11 +1,17 @@
 #!/bin/bash
 
 ls
-cd CalabashFlickrFeed
-bundle install
+
 
 pathToApk="${BUDDYBUILD_WORKSPACE}/app/build/outputs/apk/app-debug.apk"
 echo $pathToApk
+
+cd CalabashFlickrFeed
+ruby --version
+bundler --version
+#gem install json -v '1.8.6'
+
+sudo bundle install
 
 calabash-android resign $pathToApk
 
